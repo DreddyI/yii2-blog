@@ -58,6 +58,8 @@ class BlogCatalog extends \yii\db\ActiveRecord
             [
                 'class' => SluggableBehavior::className(),
                 'attribute' => 'title',
+		'ensureUnique'=>true,
+		'immutable'=>true,
             ],
         ];
     }
