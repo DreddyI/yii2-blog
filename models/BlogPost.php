@@ -177,8 +177,8 @@ class BlogPost extends \yii\db\ActiveRecord
     {
         return self::find()
             ->where(
-                'id != :id and catalog_id = :catalog_id',
-                ['id' => $this->id, 'catalog_id' => $this->catalog_id]
+                'id != :id and catalog_id = :catalog_id and status=:status',
+                ['id' => $this->id, 'catalog_id' => $this->catalog_id,'status'=>Status::STATUS_ACTIVE]
             )
             ->limit(self::SIMILAR_LIMIT)
             ->orderBy('updated_at DESC')
