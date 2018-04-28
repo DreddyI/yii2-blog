@@ -314,7 +314,7 @@ class BlogPost extends \yii\db\ActiveRecord
     public function getTopStories()
     {
         return BlogPost::find()
-            ->where(['with_donations' => self::WITH_DONATIONS, 'in_top' => self::IN_TOP])
+            ->where(['status'=>Status::STATUS_ACTIVE,'with_donations' => self::WITH_DONATIONS, 'in_top' => self::IN_TOP])
             ->limit(self::LIMIT_TOP_STORIES)
             ->all();
     }
